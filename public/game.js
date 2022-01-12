@@ -12,8 +12,11 @@ socket.on("id",(idlol)=>{
 socket.on("otherPos",(inp)=>{
   players=inp
 })
+
+
+
 for (i = 0; i < 400; i++) {
-  foods.push({ x: Math.random() * 2000, y: Math.random() * 2000 });
+  foods.push({ x: Math.random() * 100, y: Math.random() * 100 });
 }
 function update() {
   socket.emit("myPos",mypos)
@@ -48,9 +51,11 @@ function update() {
 function draw() {
   try{
   for(i=0;i<players.length;i++){
+    if(players[i]!=null){
     for(j=0;j<players[i].coords.length;j++){
     context.fillRect(players[i].coords[j].x-mypos.x+300,players[i].coords[j].y-mypos.y+300,40,40)
 
+    }
     }
   }}catch{
 
