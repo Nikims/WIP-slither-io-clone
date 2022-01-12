@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
-const http = require("http");
-const server = http.createServer(app);
+const https = require("https");
+const server = https.createServer(app);
 const path = require("path");
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb" }));
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:6952",
+    origin: "https://localhost:6952",
     methods: ["GET", "POST"],
     transports: ["websocket"],
     credentials: true,
